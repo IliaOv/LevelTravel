@@ -1,0 +1,73 @@
+[{
+    "wind": "2 м/с",
+    "temp": "+7",
+    "pressure": "752 мм",
+    "icon": "sun",
+    "id": "1",
+    "value": "Москва"
+  },
+  {
+    "wind": "7 м/с",
+    "temp": "+1",
+    "pressure": "750 мм",
+    "icon": "sun",
+    "id": "2",
+    "value": "Санкт-Петербург"
+  },
+  {
+    "wind": "3 м/с",
+    "temp": "+7",
+    "pressure": "762 мм",
+    "icon": "rain",
+    "id": "3",
+    "value": "Екатеринбург"
+  },
+  {
+    "wind": "5 м/с",
+    "temp": "+6",
+    "pressure": "749 мм",
+    "icon": "rain",
+    "id": "4",
+    "value": "Воронеж"
+  },
+  {
+    "wind": "5 м/с",
+    "temp": "+5",
+    "pressure": "751 мм",
+    "icon": "sun",
+    "id": "5",
+    "value": "Нижний Новгород"
+  },
+  {
+    "wind": "8 м/с",
+    "temp": "+15",
+    "pressure": "752 мм",
+    "icon": "sun",
+    "id": "6",
+    "value": "Ялта"
+  },
+  {
+    "wind": "10 м/с",
+    "temp": "+5",
+    "pressure": "752 мм",
+    "icon": "clouds",
+    "id": "7",
+    "value": "Байконур"
+  },
+  {
+    "wind": "1 м/с",
+    "temp": "+17",
+    "pressure": "752 мм",
+    "icon": "sun",
+    "id": "8",
+    "value": "Сочи"
+  },
+  {
+    "wind": "2 м/с",
+    "temp": "+7",
+    "pressure": "752 мм",
+    "icon": "clouds",
+    "id": "9",
+    "value": "Балашиха"
+  }
+]

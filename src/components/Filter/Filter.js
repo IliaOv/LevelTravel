@@ -1,11 +1,20 @@
-import React from "react";
+import Search from "react-search";
+import React, { Component } from "react";
 import "./Filter.css";
+import russia from "../../static/russia1.json";
 
-class Filter extends React.Component {
+class Filter extends Component {
   render() {
-    return <div className="parameters">
-        <input id="city" type="text" className="autocomplete" placeholder="Начните вводить код или название" />
-    </div>;
+    return (
+      <React.Fragment>
+        <Search
+          items={russia}
+          placeholder="Выберите город"
+          maxSelected={1}
+          multiple={false}
+        />
+      </React.Fragment>
+    );
   }
 }
 
