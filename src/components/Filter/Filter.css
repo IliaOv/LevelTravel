@@ -1,23 +1,66 @@
-.bPcRQP {
-  width: 16rem !important;
-}
-.bPcRQP > .cqaNcS {
-  border: solid 0.0625rem grey;
-}
 .filter {
   display: flex;
 }
+
+.MuiIconButton-label,
+.MuiInputLabel-outlined,
+.MuiInputLabel-shrink {
+  display: none !important;
+}
+
+.MuiOutlinedInput-root {
+  border-radius: unset !important;
+  border: solid 0.125rem #acacac !important;
+  height: 4rem !important;
+}
+
+.PrivateNotchedOutline-root-105 {
+  border: none !important;
+}
+
 .square {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin-left: 0.5rem;
-  width: 3.937rem;
-  height: 2.937rem;
-  border: solid 0.0625rem grey;
+  width: 6.5rem;
+  height: 4rem;
+  background: transparent;
+  border: solid 0.125rem #acacac;
+  cursor: pointer;
 }
+
 .plus {
-    margin-top: -0.5rem;
+  line-height: 1.75rem;
+}
+
+.PrivateValueLabel-circle-160 {
+  background-color: transparent !important;
+}
+
+.PrivateValueLabel-thumb-157.PrivateValueLabel-open-158
+  .PrivateValueLabel-offset-159 {
+  transform: scale(1) translateY(50px) !important;
+}
+
+.PrivateValueLabel-label-161 {
+  color: #000 !important;
+}
+
+.MuiSlider-thumb {
+  width: 0.625rem !important;
+  height: 1rem !important;
+  border-radius: 30% !important;
+  margin-top: -0.4rem !important;
+  background-color: #050505 !important;
+}
+
+.MuiSlider-root {
+  color: #696969 !important;
+}
+
+.MuiSlider-trackInverted .MuiSlider-track {
+  background-color: #e1e1e1 !important;
 }
