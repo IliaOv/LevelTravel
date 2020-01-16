@@ -1,4 +1,15 @@
+#root {
+  margin: 0 auto;
+  width: 70%;
+}
+
 header {
-    margin-top: 5rem;
-    margin-left: 5rem;
+  margin-top: 5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
