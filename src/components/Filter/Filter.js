@@ -4,8 +4,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-
-import "./Filter.css";
+import "./Filter.scss";
 import russia from "../../static/russia.json";
 
 const useStyles = makeStyles(theme => ({
