@@ -3,10 +3,13 @@ import "./Card.scss";
 
 class Card extends React.Component {
   render() {
-    const { city, img, temp, wind, pressure } = this.props;
+    const { city, img, temp, wind, pressure, close } = this.props;
     return (
       <div className={"card"}>
-        <h2 className={"card__header"}>{city}</h2>
+        <div className={"card__title"}>
+          <h2 className={"card__header"}>{city}</h2>
+          <span className={"card__close"} onClick={close}></span>
+        </div>
         <div className={"card_shortinf"}>
           <img
             className={"card__img"}

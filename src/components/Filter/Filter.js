@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import "./Filter.scss";
-import russia from "../../static/russia.json";
+import rus from "../../static/rus.json";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,7 +28,7 @@ function Filter(props) {
     <div className={"filter"}>
       <Autocomplete
         id="combo-box-demo"
-        options={russia}
+        options={rus}
         getOptionLabel={option => option.title}
         style={{ width: 300 }}
         renderInput={params => (
