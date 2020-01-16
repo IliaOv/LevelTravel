@@ -8,27 +8,45 @@ import rain from "../src/static/img/rain.png";
 import "./App.css";
 
 class App extends React.Component {
+  state = {
+    cards: [1, 2, 3]
+  };
+
+  addCard = () => {
+    let id = "";
+    russia.map((item, index) =>
+      item["title"] ===
+      document.getElementById("combo-box-demo").getAttribute("value")
+        ? (id = index)
+        : ""
+    );
+
+    this.setState({
+      cards: [...this.state.cards, id]
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
         <header>
-          <Filter />
+          <Filter add={() => this.addCard()} />
         </header>
         <main>
-          {russia.map((item, index) => (
+          {this.state.cards.map((item, index) => (
             <Card
               key={Math.random()}
-              city={item["title"]}
+              city={russia[item]["title"]}
               img={
-                item["icon"] === "cloud"
+                russia[item]["icon"] === "cloud"
                   ? cloud
-                  : item["icon"] === "sun"
+                  : russia[item]["icon"] === "sun"
                   ? sun
                   : rain
               }
-              temp={item["temp"]}
-              wind={item["wind"]}
-              pressure={item["pressure"]}
+              temp={russia[item]["temp"]}
+              wind={russia[item]["wind"]}
+              pressure={russia[item]["pressure"]}
             />
           ))}
         </main>

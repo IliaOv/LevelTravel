@@ -21,7 +21,7 @@ function valueLabelFormat(value) {
   return value > 0 ? `+${value}°C` : `${value}°C`;
 }
 
-function Filter() {
+function Filter(props) {
   const classes = useStyles();
 
   return (
@@ -41,7 +41,7 @@ function Filter() {
         )}
       />
 
-      <button className={"square"}>
+      <button className={"square"} onClick={props.add}>
         <span className={"plus"}>+</span>
       </button>
 
