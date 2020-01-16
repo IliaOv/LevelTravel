@@ -9,7 +9,7 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    cards: [0, 1, 2]
+    cards: [0, 172, 1887]
   };
 
   addCard = () => {
@@ -22,7 +22,10 @@ class App extends React.Component {
     );
 
     this.setState({
-      cards: [...this.state.cards, id]
+      cards:
+        this.state.cards.indexOf(id) === -1
+          ? [...this.state.cards, id]
+          : [...this.state.cards]
     });
   };
 
@@ -34,11 +37,32 @@ class App extends React.Component {
     });
   };
 
+  filterCard = () => {
+    let arr = [];
+    this.state.cards.filter(
+      (item, index) =>
+        rus[item]["temp"].replace("+", "") >=
+        document
+          .getElementsByClassName("PrivateValueLabel-label-161")[0]
+          .innerHTML.replace("°C", "")
+    );
+    arr = this.state.cards.filter(
+      item =>
+        rus[item]["temp"] >= -5
+        /*document
+          .getElementsByClassName("PrivateValueLabel-label-161")[0]
+          .innerHTML.replace("°C", "")*/
+    );
+    this.setState({
+      cards: arr
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
         <header>
-          <Filter add={() => this.addCard()} />
+          <Filter add={() => this.addCard()} filter={() => this.filterCard()} />
         </header>
         <main>
           {this.state.cards.map((item, index) => (
