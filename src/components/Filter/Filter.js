@@ -58,7 +58,7 @@ function Filter(props) {
           valueLabelFormat={valueLabelFormat}
           min={-5}
           max={30}
-          onChange={props.filter}
+          onClick={props.filter}
         />
       </div>
     </div>
