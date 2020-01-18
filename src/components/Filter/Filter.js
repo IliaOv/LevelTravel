@@ -1,11 +1,22 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
+import { withStyles } from "@material-ui/core/styles";
 import "./Filter.scss";
 
 function valueLabelFormat(value) {
   return value > 0 ? `+${value}°C` : `${value}°C`;
 }
+
+const IOSSlider = withStyles({
+  valueLabel: {
+    top: "1.5rem",
+    "& *": {
+      background: "transparent",
+      color: "#000"
+    }
+  }
+})(Slider);
 
 class Filter extends React.Component {
   constructor(props) {
@@ -14,14 +25,13 @@ class Filter extends React.Component {
     this.onFilterClick = this.onFilterClick.bind(this);
   }
 
-  onFilterClick() {
-    let temp = parseInt(
-      document
-        .getElementsByClassName("PrivateValueLabel-label-159")[0]
-        .innerHTML.replace("°C", ""),
-      10
-    );
-    this.props.filterCity(temp);
+  onFilterClick(e) {
+    let temp = 5;
+    e.target.getAttribute("aria-valuenow")
+      ? (temp = e.target.getAttribute("aria-valuenow"))
+      : (temp = e.target.children[2].getAttribute("value"));
+
+    this.props.filterCity(parseInt(temp, 10));
   }
 
   render() {
@@ -30,7 +40,7 @@ class Filter extends React.Component {
         <Typography id="track-inverted-slider" gutterBottom>
           Где сейчас теплее, чем
         </Typography>
-        <Slider
+        <IOSSlider
           track="inverted"
           aria-labelledby="track-inverted-slider"
           defaultValue={5}
