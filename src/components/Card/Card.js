@@ -14,7 +14,6 @@ class Card extends React.Component {
     rus.map((item, index) =>
       item["title"] === e.target.previousSibling.innerHTML ? (id = index) : ""
     );
-    console.log(id);
     this.props.delCity(id);
   }
 

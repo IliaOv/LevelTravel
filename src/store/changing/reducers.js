@@ -1,5 +1,6 @@
 import { ADD_CITY } from "./actions";
 import { DEL_CITY } from "./actions";
+import { FILTER_CITY } from "./actions";
 
 const defaultState = {
   cards: [0, 172, 1887],
@@ -20,6 +21,11 @@ export const addingReducer = (state = defaultState, action) => {
       return {
         ...state,
         cards: state.cards.filter(item => item !== action.payload)
+      };
+    case FILTER_CITY:
+      return {
+        ...state,
+        slider: action.payload
       };
     default:
       return state;

@@ -8,6 +8,9 @@ header {
   display: flex;
 }
 
+fieldset {
+  border: none !important;
+}
 /*search start*/
 
 .MuiIconButton-label,

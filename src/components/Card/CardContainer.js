@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Card } from "./Card";
-import { delCity } from "../../store/adding/actions";
+import { delCity } from "../../store/changing/actions";
 import rus from "../../static/rus";
 import cloud from "../../static/img/cloud.png";
 import sun from "../../static/img/sun.png";
@@ -10,7 +10,7 @@ import rain from "../../static/img/rain.png";
 class CardContainer extends React.Component {
   render() {
     return this.props.cards.map((item, index) =>
-      rus[item]["temp"] >= this.props.slider ? (
+      rus[item]["temp"] > this.props.slider ? (
         <Card
           key={Math.random()}
           city={rus[item]["title"]}

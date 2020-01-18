@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Adding } from "./Adding";
-import { addCity } from "../../store/adding/actions";
+import { addCity } from "../../store/changing/actions";
 
 class AddingContainer extends React.Component {
   render() {
