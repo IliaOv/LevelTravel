@@ -1,4 +1,7 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import { Adding } from "./components/Adding/Adding.js";
 import { Filter } from "./components/Filter/Filter.js";
 import { Card } from "./components/Card/Card.js";
 import rus from "../src/static/rus.json";
@@ -53,7 +56,22 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <header>
-          <Filter add={() => this.addCard()} filter={() => this.filterCard()} />
+          <Autocomplete
+            id="combo-box-demo"
+            options={rus}
+            getOptionLabel={option => option.title}
+            style={{ width: 300 }}
+            renderInput={params => (
+              <TextField
+                {...params}
+                label="Выберите город"
+                variant="outlined"
+                fullWidth
+              />
+            )}
+          />
+          <Adding add={() => this.addCard()} />
+          <Filter filter={() => this.filterCard()} />
         </header>
         <main>
           {this.state.cards.map((item, index) =>
