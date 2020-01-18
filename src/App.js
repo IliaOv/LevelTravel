@@ -1,36 +1,28 @@
 import React from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import rootReducers from "./store/reducers";
+
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { Adding } from "./components/Adding/Adding.js";
+import AddingContainer from "./components/Adding/AddingContainer";
 import { Filter } from "./components/Filter/Filter.js";
 import { Card } from "./components/Card/Card.js";
+import CardContainer from "./components/Card/CardContainer.js";
+
 import rus from "../src/static/rus.json";
 import sun from "../src/static/img/sun.png";
 import cloud from "../src/static/img/cloud.png";
 import rain from "../src/static/img/rain.png";
+
 import "./App.css";
+
+const store = createStore(rootReducers);
 
 class App extends React.Component {
   state = {
     cards: [0, 172, 1887],
     slider: 5
-  };
-
-  addCard = () => {
-    let id = "";
-    rus.map((item, index) =>
-      item["title"] ===
-      document.getElementById("combo-box-demo").getAttribute("value")
-        ? (id = index)
-        : ""
-    );
-
-    this.setState({
-      cards:
-        this.state.cards.indexOf(id) === -1
-          ? [...this.state.cards, id]
-          : [...this.state.cards]
-    });
   };
 
   closeCard = i => {
@@ -54,7 +46,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Provider store={store}>
         <header>
           <Autocomplete
             id="combo-box-demo"
@@ -70,33 +62,36 @@ class App extends React.Component {
               />
             )}
           />
-          <Adding add={() => this.addCard()} />
+          <AddingContainer />
           <Filter filter={() => this.filterCard()} />
         </header>
         <main>
-          {this.state.cards.map((item, index) =>
-            rus[item]["temp"] >= this.state.slider ? (
-              <Card
-                key={Math.random()}
-                city={rus[item]["title"]}
-                img={
-                  rus[item]["icon"] === "cloud"
-                    ? cloud
-                    : rus[item]["icon"] === "sun"
-                    ? sun
-                    : rain
-                }
-                temp={rus[item]["temp"]}
-                wind={rus[item]["wind"]}
-                pressure={rus[item]["pressure"]}
-                close={() => this.closeCard(index)}
-              />
-            ) : (
-              ""
-            )
-          )}
+          <CardContainer />
+          {/*store
+            .getState()
+            .adding.cards.map((item, index) =>
+              rus[item]["temp"] >= store.getState().adding.slider ? (
+                <Card
+                  key={Math.random()}
+                  city={rus[item]["title"]}
+                  img={
+                    rus[item]["icon"] === "cloud"
+                      ? cloud
+                      : rus[item]["icon"] === "sun"
+                      ? sun
+                      : rain
+                  }
+                  temp={rus[item]["temp"]}
+                  wind={rus[item]["wind"]}
+                  pressure={rus[item]["pressure"]}
+                  close={() => this.closeCard(index)}
+                />
+              ) : (
+                ""
+              )
+            )*/}
         </main>
-      </React.Fragment>
+      </Provider>
     );
   }
 }

@@ -1,14 +1,30 @@
 import React from "react";
 import "./Card.scss";
+import rus from "../../static/rus";
 
 class Card extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onCloseClick = this.onCloseClick.bind(this);
+  }
+
+  onCloseClick(e) {
+    let id = 0;
+    rus.map((item, index) =>
+      item["title"] === e.target.previousSibling.innerHTML ? (id = index) : ""
+    );
+    console.log(id);
+    this.props.delCity(id);
+  }
+
   render() {
-    const { city, img, temp, wind, pressure, close } = this.props;
+    const { city, img, temp, wind, pressure } = this.props;
     return (
       <div className={"card"}>
         <div className={"card__title"}>
           <h2 className={"card__header"}>{city}</h2>
-          <span className={"card__close"} onClick={close}></span>
+          <span className={"card__close"} onClick={this.onCloseClick}></span>
         </div>
         <div className={"card_shortinf"}>
           <img
