@@ -1,16 +1,15 @@
-import { ADD_CITY } from "./actions";
-import { DEL_CITY } from "./actions";
-import { FILTER_CITY } from "./actions";
-
-// можно сделать import { ADD_CITY, DEL_CITY, FILTER_CITY } from './actions';
+import { ADD_CITY, DEL_CITY, FILTER_CITY } from "./actions";
+import rus from "../../static/rus";
+import Swal from "sweetalert2";
 
 const defaultState = {
-  cards: [0, 172, 1887],
-  slider: 5
+  cards: [0, 172, 1886],
+  slider: 5,
+  empty: true,
+  double: false
 };
 
-// Странный нейминг - это процесс работы с карточками - подпиши просто cardsReducer
-export const addingReducer = (state = defaultState, action) => {
+export const cardsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_CITY:
       return {
@@ -18,7 +17,11 @@ export const addingReducer = (state = defaultState, action) => {
         cards:
           state.cards.indexOf(action.payload) === -1
             ? [...state.cards, action.payload]
-            : [...state.cards]
+            : [...state.cards],
+        double:
+          state.cards.indexOf(action.payload) !== -1
+            ? Swal.fire("Город уже добавлен или не попадает в фильтр")
+            : ""
       };
     case DEL_CITY:
       return {
@@ -28,7 +31,10 @@ export const addingReducer = (state = defaultState, action) => {
     case FILTER_CITY:
       return {
         ...state,
-        slider: action.payload
+        slider: action.payload,
+        empty: state.cards.some(item => {
+          return rus[item]["temp"] > action.payload;
+        })
       };
     default:
       return state;

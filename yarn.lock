@@ -6560,6 +6560,11 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
+lodash.chunk@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.chunk/-/lodash.chunk-4.2.0.tgz#66e5ce1f76ed27b4303d8c6512e8d1216e8106bc"
+  integrity sha1-ZuXOH3btJ7QwPYxlEujRIW6BBrw=
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -10226,6 +10231,11 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+sweetalert2@^9.6.1:
+  version "9.6.1"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.6.1.tgz#0f328554f2b9199c2f740a08de537019e4dc8955"
+  integrity sha512-aEKg8s40I+JhyZMIbjv3/l+ExtU8ZutKxxm25gBcfageNyBS3AC3dVdMrB2UScD73oKW/H9Ds9wYCjJRXxe5wg==
 
 symbol-observable@^1.2.0:
   version "1.2.0"

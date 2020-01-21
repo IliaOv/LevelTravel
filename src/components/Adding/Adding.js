@@ -11,7 +11,12 @@ const Adding = ({ addCity }) => {
         ? (id = index)
         : ""
     );
-    addCity(id);
+
+    if (
+      document.getElementById("combo-box-demo").getAttribute("value") !== ""
+    ) {
+      addCity(id);
+    }
   };
 
   return (

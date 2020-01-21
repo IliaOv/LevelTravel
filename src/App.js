@@ -9,6 +9,7 @@ import FilterContainer from "./components/Filter/FilterContainer.js";
 import CardContainer from "./components/Card/CardContainer.js";
 import rus from "../src/static/rus.json";
 import "./App.css";
+import * as _ from "lodash";
 
 const store = createStore(rootReducers);
 
@@ -18,7 +19,7 @@ const App = () => {
       <header>
         <Autocomplete
           id="combo-box-demo"
-          options={rus}
+          options={_.orderBy(rus, ["title"])}
           getOptionLabel={option => option.title}
           style={{ width: 300 }}
           renderInput={params => (
