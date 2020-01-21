@@ -7,31 +7,34 @@ import cloud from "../../static/img/cloud.png";
 import sun from "../../static/img/sun.png";
 import rain from "../../static/img/rain.png";
 
-class CardContainer extends React.Component {
-  render() {
-    return this.props.cards.map((item, index) =>
-      rus[item]["temp"] > this.props.slider ? (
-        <Card
-          key={Math.random()}
-          city={rus[item]["title"]}
-          img={
-            rus[item]["icon"] === "cloud"
-              ? cloud
-              : rus[item]["icon"] === "sun"
-              ? sun
-              : rain
-          }
-          temp={rus[item]["temp"]}
-          wind={rus[item]["wind"]}
-          pressure={rus[item]["pressure"]}
-          delCity={this.props.delCity}
-        />
-      ) : (
-        ""
-      )
-    );
+const chooseIcon = item => {
+  let icon = rain;
+  if (rus[item]["icon"] === "cloud") {
+    icon = cloud;
   }
-}
+  if (rus[item]["icon"] === "sun") {
+    icon = sun;
+  }
+  return icon;
+};
+
+const CardContainer = ({ delCity, cards, slider }) => {
+  return cards.map((item, index) =>
+    rus[item]["temp"] > slider ? (
+      <Card
+        key={Math.random()}
+        city={rus[item]["title"]}
+        img={chooseIcon(item)}
+        temp={rus[item]["temp"]}
+        wind={rus[item]["wind"]}
+        pressure={rus[item]["pressure"]}
+        delCity={delCity}
+      />
+    ) : (
+      ""
+    )
+  );
+};
 
 const mapStateToProps = state => {
   return {

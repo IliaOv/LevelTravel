@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import { Adding } from "./Adding";
 import { addCity } from "../../store/changing/actions";
 
-class AddingContainer extends React.Component {
-  render() {
-    return <Adding addCity={this.props.addCity} />;
-  }
-}
+const AddingContainer = ({ addCity }) => {
+  return <Adding addCity={addCity} />;
+};
 
 const mapStateToProps = state => {
   return {

@@ -1,7 +1,7 @@
 # Прогноз погоды на "Маябрь"
 [Ссылка на приложение](https://iliaov.github.io/LevelTravel/build)
 
-Stack: React, Redux, Flexbox, SCSS, bem-naming
+Stack: React, Redux, Material-UI, Flexbox, SCSS, bem-naming
 
 Run
 ```
@@ -10,3 +10,4 @@ yarn start
 ```
 
 based on React Create App Node v12.14.1
+![Test_img](/test_img.jpg)

@@ -18,42 +18,34 @@ const IOSSlider = withStyles({
   }
 })(Slider);
 
-class Filter extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onFilterClick = this.onFilterClick.bind(this);
-  }
-
-  onFilterClick(e) {
+const Filter = ({ filterCity }) => {
+  const onFilterClick = e => {
     let temp = 5;
     e.target.getAttribute("aria-valuenow")
       ? (temp = e.target.getAttribute("aria-valuenow"))
       : (temp = e.target.children[2].getAttribute("value"));
 
-    this.props.filterCity(parseInt(temp, 10));
-  }
+    filterCity(parseInt(temp, 10));
+  };
 
-  render() {
-    return (
-      <div className={"slider"}>
-        <Typography id="track-inverted-slider" gutterBottom>
-          Где сейчас теплее, чем
-        </Typography>
-        <IOSSlider
-          track="inverted"
-          aria-labelledby="track-inverted-slider"
-          defaultValue={5}
-          step={5}
-          valueLabelDisplay="on"
-          valueLabelFormat={valueLabelFormat}
-          min={-5}
-          max={30}
-          onClick={this.onFilterClick}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={"slider"}>
+      <Typography id="track-inverted-slider" gutterBottom>
+        Где сейчас теплее, чем
+      </Typography>
+      <IOSSlider
+        track="inverted"
+        aria-labelledby="track-inverted-slider"
+        defaultValue={5}
+        step={5}
+        valueLabelDisplay="on"
+        valueLabelFormat={valueLabelFormat}
+        min={-5}
+        max={30}
+        onClick={onFilterClick}
+      />
+    </div>
+  );
+};
 
 export { Filter };

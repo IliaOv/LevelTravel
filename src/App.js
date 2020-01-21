@@ -12,34 +12,32 @@ import "./App.css";
 
 const store = createStore(rootReducers);
 
-class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <header>
-          <Autocomplete
-            id="combo-box-demo"
-            options={rus}
-            getOptionLabel={option => option.title}
-            style={{ width: 300 }}
-            renderInput={params => (
-              <TextField
-                {...params}
-                label="Выберите город"
-                variant="outlined"
-                fullWidth
-              />
-            )}
-          />
-          <AddingContainer />
-          <FilterContainer />
-        </header>
-        <main>
-          <CardContainer />
-        </main>
-      </Provider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Provider store={store}>
+      <header>
+        <Autocomplete
+          id="combo-box-demo"
+          options={rus}
+          getOptionLabel={option => option.title}
+          style={{ width: 300 }}
+          renderInput={params => (
+            <TextField
+              {...params}
+              label="Выберите город"
+              variant="outlined"
+              fullWidth
+            />
+          )}
+        />
+        <AddingContainer />
+        <FilterContainer />
+      </header>
+      <main>
+        <CardContainer />
+      </main>
+    </Provider>
+  );
+};
 
 export { App };

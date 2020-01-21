@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import { Filter } from "./Filter";
 import { filterCity } from "../../store/changing/actions";
 
-class FilterContainer extends React.Component {
-  render() {
-    return <Filter filterCity={this.props.filterCity} />;
-  }
-}
+const FilterContainer = ({ filterCity }) => {
+  return <Filter filterCity={filterCity} />;
+};
 
 const mapStateToProps = state => {
   return {
