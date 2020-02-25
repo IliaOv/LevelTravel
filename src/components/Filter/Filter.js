@@ -19,6 +19,14 @@ const IOSSlider = withStyles({
 })(Slider);
 
 const Filter = ({ filterCity }) => {
+  const onFilterChange = e => {
+    let temp = 5;
+    temp = document
+      .getElementsByClassName("PrivateValueLabel-label-160")[0]
+      .innerHTML.slice(0, -2);
+
+    filterCity(parseInt(temp, 10));
+  };
   const onFilterClick = e => {
     let temp = 5;
     e.target.getAttribute("aria-valuenow")
@@ -42,6 +50,7 @@ const Filter = ({ filterCity }) => {
         valueLabelFormat={valueLabelFormat}
         min={-5}
         max={30}
+        onChange={onFilterChange}
         onClick={onFilterClick}
       />
     </div>
